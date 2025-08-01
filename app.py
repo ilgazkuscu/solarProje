@@ -7,6 +7,13 @@ import base64
 from dash import dcc, html
 from jupyter_dash import JupyterDash
 
+# from jupyter_dash import JupyterDash  # Bunu kaldırın
+from dash import Dash  # Bunu ekleyin
+
+# app = JupyterDash(__name__)  # Bunu kaldırın
+app = Dash(__name__)  # Bunu ekleyin
+
+
 # Zaman dizisi
 zaman = pd.date_range("2024-07-22 06:00", periods=48, freq="30min")
 
