@@ -1,11 +1,12 @@
-import pandas as pd
-import numpy as np
+import dash
+from dash import dcc, html
 import plotly.express as px
 import matplotlib.pyplot as plt
 import io
 import base64
-from dash import Dash
-app = Dash(__name__)
+
+app = dash.Dash(__name__)
+
 
 
 
