@@ -4,9 +4,12 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import io
 import base64
-import pandas as pd
-import numpy as np
+
+import pandas as pd      # <-- BU ŞART
+import numpy as np       # <-- BU DA ŞART
 import os
+
+
 
 # Dash App
 app = dash.Dash(__name__)
