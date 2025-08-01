@@ -4,10 +4,8 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import io
 import base64
-from dash import dcc, html
-from jupyter_dash import JupyterDash
-import dash
-app = dash.Dash(__name__)
+from dash import Dash
+app = Dash(__name__)
 
 
 
@@ -85,7 +83,7 @@ def create_table_image(df):
 table_img_src = create_table_image(df_table)
 
 # --- Dash App ---
-app = JupyterDash(__name__)
+app = Dash(__name__)
 app.title = "Enerji İzleme Paneli"
 
 app.layout = html.Div([
@@ -110,7 +108,4 @@ app.layout = html.Div([
 if __name__ == '__main__':
     import os
     port = int(os.environ.get("PORT", 8050))
-    app.run_server(host='0.0.0.0', port=port, debug=False)
-
-
-
+    app.run(host='0.0.0.0', port=port, debug=False)
