@@ -111,4 +111,8 @@ app.layout = html.Div([
 ])
 
 if __name__ == '__main__':
-    app.run(mode='inline', debug=True)
+    import os
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(host='0.0.0.0', port=port, debug=False)
+
+
