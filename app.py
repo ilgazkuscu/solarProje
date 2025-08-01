@@ -4,11 +4,13 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import io
 import base64
+import pandas as pd
+import numpy as np
+import os
 
+# Dash App
 app = dash.Dash(__name__)
-
-
-
+app.title = "Enerji İzleme Paneli"
 
 # Zaman dizisi
 zaman = pd.date_range("2024-07-22 06:00", periods=48, freq="30min")
@@ -83,10 +85,7 @@ def create_table_image(df):
 
 table_img_src = create_table_image(df_table)
 
-# --- Dash App ---
-app = Dash(__name__)
-app.title = "Enerji İzleme Paneli"
-
+# Layout
 app.layout = html.Div([
     html.H1("Enerji İzleme Web Uygulaması", style={"textAlign": "center"}),
 
@@ -107,6 +106,5 @@ app.layout = html.Div([
 ])
 
 if __name__ == '__main__':
-    import os
     port = int(os.environ.get("PORT", 8050))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run_server(host='0.0.0.0', port=port, debug=False)
